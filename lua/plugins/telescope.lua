@@ -16,7 +16,6 @@ return {
         fzf = {}
       }
     }
-
     require('telescope').load_extension('fzf')
 
     local telescope = require('telescope.builtin')
@@ -26,5 +25,7 @@ return {
     vim.keymap.set('n', '<leader>ec', function()
       telescope.find_files { cwd = vim.fn.stdpath("config") }
     end)
+
+    require('config.telescope.multigrep').setup()
   end
 }

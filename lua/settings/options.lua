@@ -9,8 +9,15 @@ vim.cmd [[hi @string guifg=yellow]]
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = 'Highlight on yank',
-    callback = function() 
-	vim.highlight.on_yank()
+    callback = function()
+        vim.highlight.on_yank()
     end,
-    
+
 })
+
+vim.cmd [[
+  hi Normal guibg=none
+  hi NonText guibg=none
+  hi Normal ctermbg=none
+  hi NonText ctermbg=none
+]]
