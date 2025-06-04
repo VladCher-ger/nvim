@@ -15,9 +15,21 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 })
 
+vim.cmd[[colorscheme tokyonight]]
+
+vim.api.nvim_set_hl(0, "LineNrAbove", { fg ="white"})
+vim.api.nvim_set_hl(0, "LineNr", { fg = "yellow" })
+vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "white" })
+
+vim.api.nvim_set_hl(0, "Normal", {bg="none", ctermbg = "none", ctermfg="none", fg="none",})
+vim.api.nvim_set_hl(0, "NonText", {bg="none", ctermbg = "none", ctermfg="none", fg="none",})
+vim.api.nvim_set_hl(0, "StatusLine", {bg="none", ctermbg = "none", ctermfg="none", fg="none",})
+vim.api.nvim_set_hl(0, "VertSplit", {bg="none", ctermbg = "none", ctermfg="none", fg="none",})
+--[[
 vim.cmd [[
-  hi Normal guibg=none
-  hi NonText guibg=none
-  hi Normal ctermbg=none
-  hi NonText ctermbg=none
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
 ]]
+--]]
