@@ -1,3 +1,4 @@
+vim.opt.path:append("C:/Users/Vladyslav Cherniak/AppData/Local/nvim")
 require("customplugin.floaterminal")
 require('settings.remap')
 require("config.lazy")

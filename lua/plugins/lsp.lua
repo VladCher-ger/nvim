@@ -36,14 +36,19 @@ return {
         settings = {
           Lua = {
             diagnostics = {
-              globals = { 'vim' }
+              globals = { 'vim', 'set' }
             }
           }
         }
       },
-      handlers = {
+      require 'lspconfig'.jedi_language_server.setup {
+
+      }
+
+      --[[ handlers = {
         function(server_name) -- default handler (optional)
           require("lspconfig")[server_name].setup {
+            print(server_name),
             capabilities = capabilities
           }
         end,
@@ -63,7 +68,7 @@ return {
         end,
 
 
-      }
+      }--]]
     })
 
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -87,15 +92,15 @@ return {
         { name = 'buffer' },
       })
     })
-
     vim.diagnostic.config({
       -- update_in_insert = true,
       float = {
-        focusable = false,
-        style = "minimal",
+        focusable = true,
+        --style = "minimal",
         border = "rounded",
         source = "always",
         header = "",
+
         prefix = "",
       },
     })
