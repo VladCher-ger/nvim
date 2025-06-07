@@ -1,3 +1,4 @@
+
 return {
   {
     "hrsh7th/cmp-nvim-lsp"
@@ -7,7 +8,7 @@ return {
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
-      {"kmarius/jsregexp",
+      { "kmarius/jsregexp",
       },
     },
   },
@@ -24,22 +25,41 @@ return {
           end,
         },
         window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
+          completion = cmp.config.window.bordered({
+            border = "double",
+            winhighlight = "Normal:MyPmenu,FloatBorder:MyPmenu,CursorLine:PmenuSel,Search:None",
+          }),
         },
+
+        formattin = {
+          format = function(_, vim_item)
+            local icons = {
+              Text = "",
+              Variable = "󰫧",
+              Snippet = "󰩫",
+              Function = "󰊕",
+            }
+            vim_item.kind = icons[vim_item.kind]
+            return vim_item
+          end
+        },
+
         mapping = cmp.mapping.preset.insert({
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
+          ["<C-j>"] = cmp.mapping.select_next_item(),
+          ["<C-k>"] = cmp.mapping.select_prev_item(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
-          { name = "luasnip" }, -- For luasnip users.
+          { name = "luasnip" }, -- For luasnip users.:
         }, {
           { name = "buffer" },
         }),
+
       })
     end,
   },
