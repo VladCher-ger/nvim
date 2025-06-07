@@ -1,6 +1,5 @@
-
 vim.g.mapleader = " "
-vim.keymap.set('n','<leader><leader>x', '<cmd>source %<CR>')
+vim.keymap.set('n', '<leader><leader>x', '<cmd>source %<CR>')
 vim.keymap.set("n", "<leader>x", ":.lua<CR>")
 vim.keymap.set("v", "<leader>x", ":lua<CR>")
 
@@ -17,10 +16,11 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set('n', '-', vim.cmd.Oil)
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "<leader>tt", ":Floaterminal<CR>")
-
+vim.keymap.set("n", "<C-F5>", 'w<CR>:vert ter "./venv/Scripts/python" "%"<CR>')
+vim.keymap.set("n", "<C-a>", ':hor ter "./venv/Scripts/activate"<CR>')
